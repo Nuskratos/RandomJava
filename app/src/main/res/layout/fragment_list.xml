@@ -4,62 +4,106 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-
     <TableLayout
+        android:id="@+id/input_table_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="8dp"
         android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="2dp">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_span="2"
-                android:text="List Number picker"
+                android:text="List Number Picker"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
             android:padding="2dp">
 
-
-            <Button android:id="@+id/list_button"
+            <EditText
+                android:id="@+id/edit_list_entry"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:hint="Entry Name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="Entry Name"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_list_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Weight (e.g., 1-10)"
+                android:imeOptions="actionDone"
+                android:text="1"
+                android:inputType="number"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
+
+            <Button
+                android:id="@+id/list_button_add"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:text="Pull random list"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:padding="2dp">
-
-            <EditText android:id="@+id/edit_list_entry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Entry"/>
-
-            <EditText android:id="@+id/edit_list_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Weight"/>
+                android:layout_weight="1"
+                android:text="Add to List" />
         </TableRow>
 
     </TableLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view_list_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/list_button_random_container"
+        android:layout_below="@id/input_table_layout"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_list_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/list_button_random_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/list_button_random"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Randomly" />
+    </LinearLayout>
+
 </RelativeLayout>
